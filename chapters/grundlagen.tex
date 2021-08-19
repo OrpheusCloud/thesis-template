@@ -5,3 +5,17 @@ Die Grundlagen werden in zwei Themengebiete aufgegliedert. Das erste Themengebie
 Das zweite Themengebiet gibt eine genaue Definition der komplexen Systeme, die für die Ausarbeitung relevant sind. 
 
 \section{Asynchrone Datenübertragung}
+Asynchrone Datenübertragung oder auch bekannt als „Asynchrone Kommunikation“ bezeichnet einen Übertragungsvorgang, bei dem Daten asynchron zwischen Server und Client kommuniziert werden. \cite{abts:2019} \\
+
+Bei der Asynchronen Datenübertragung baut der Client eine Verbindung zum Server auf, welcher die Anfrage des Clients entgegennimmt und die Verbindung anschließend beendet. \cite{abts:2019} 
+Der Client übermittelt hierbei zusätzlich den Port, auf dem er das Ergebnis empfangen möchte. 
+
+Der Server verarbeitet anschließend die Anfrage, baut eine Verbindung über den erhaltenen Port zu dem Client auf und sendet diesem die angefragten Daten zurück. \\
+
+Das Verarbeiten der Daten ist hierbei nicht zeitspezifisch. Der Server bearbeitet die Anfrage zeitversetzt und sendet diese zurück, sobald der Vorgang abgeschlossen ist. \cite*{tremp:2021} \\
+
+Der alternative Übertragungsvorgang ist die synchrone Datenübertragung oder auch „Synchrone Kommunikation“ genannt. Dabei wartet der Client auf die Antwort des Servers und verarbeitet diese anschließend direkt weiter. 
+
+Im Rahmen dieser Ausarbeitung wird ausschließlich der asynchrone Datenübertragungsvorgang behandelt, da die Synchrone Datenübertragung nichts mit der Thematik zu tun hat und somit nicht zielführend für die Problemstellung dieser Ausarbeitung ist. \\
+
+Es gibt mehrere verschiedene Methoden eine asynchrone Datenübertragung umzusetzen. Die verschiedenen Methoden und weitere Grundlagen werden in den folgenden Abschnitten dargestellt. 
