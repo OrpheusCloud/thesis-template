@@ -19,3 +19,21 @@ Der alternative Übertragungsvorgang ist die synchrone Datenübertragung oder au
 Im Rahmen dieser Ausarbeitung wird ausschließlich der asynchrone Datenübertragungsvorgang behandelt, da die Synchrone Datenübertragung nichts mit der Thematik zu tun hat und somit nicht zielführend für die Problemstellung dieser Ausarbeitung ist. \\
 
 Es gibt mehrere verschiedene Methoden eine asynchrone Datenübertragung umzusetzen. Die verschiedenen Methoden und weitere Grundlagen werden in den folgenden Abschnitten dargestellt. 
+
+\subsection{Methoden der Asynchonen Datenübertragung}
+Nach aktuellen Trends der Informatik gibt es drei verschiedene Methoden für die Implementierung der asynchronen Datenübertragung. 
+
+Bei den Methoden handelt es sich um Asynchrone Rückruffunktionen, Broker-basierte Asynchrone Datenübertragung sowie Polling und werden in den folgenden Abschnitten beschrieben. 
+
+\subsubsection{Asynchrone Rückruffunktionen}
+Bei den Asynchronen Rückruffunktionen oder auch „Asynchrone Callbacks“ genannt, muss der Client sich zunächst bei dem Server registrieren, indem der Server eine Referenz auf den Client speichert. \cite{abts:2019}
+
+Der Client ruft mittels Webservice oder Remote Procedure Call die entfernte Server Methode auf. Sobald der Server die Ereignisbehandlungsroutinen abgearbeitet und die angeforderten Daten ermittelt hat, benachrichtigt dieser den Client. \cite*{bengelbaun:2015}
+
+Die Umsetzung des RPCs erfolgt hierbei ebenfalls asynchron, sodass der Client sofort weiterarbeiten kann. \cite*{schill:2012}
+
+Der Client kann nun die Daten anfordern oder sich diese über einen RPC vom Server schicken lassen. Der Server ruft dabei eine entfernte Methode des Clients auf. \cite*{abts:2019,schill:2012}  \\
+
+Der Vorteil bei den Asynchronen Rückruffunktionen gegenüber der Polling-Methode für die asynchrone Datenübertragung liegt darin, dass die Performance der Rückruffunktionen besser ist. Dies liegt an der geringeren Rechenzeit und Netzlast. \cite*{abts:2019}
+
+Die asynchronen Remote Procedure Calls erleichtern zusätzlich das Versenden großer Datenmengen in kurzer Zeit oder das Durchführen langer und komplexer Berechnungen. \cite*{schill:2012}
