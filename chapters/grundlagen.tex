@@ -28,7 +28,7 @@ Bei den Methoden handelt es sich um Asynchrone Rückruffunktionen, Broker-basier
 \subsubsection{Asynchrone Rückruffunktionen}
 Bei den Asynchronen Rückruffunktionen oder auch „Asynchrone Callbacks“ genannt, muss der Client sich zunächst bei dem Server registrieren, indem der Server eine Referenz auf den Client speichert. \cite{abts:2019}
 
-Der Client ruft mittels Webservice oder Remote Procedure Call die entfernte Server Methode auf. Sobald der Server die Ereignisbehandlungsroutinen abgearbeitet und die angeforderten Daten ermittelt hat, benachrichtigt dieser den Client. \cite*{bengelbaun:2015}
+Der Client ruft mittels Webservice oder Remote Procedure Call \ac{RPC} die entfernte Server Methode auf. Sobald der Server die Ereignisbehandlungsroutinen abgearbeitet und die angeforderten Daten ermittelt hat, benachrichtigt dieser den Client. \cite*{bengelbaun:2015}
 
 Die Umsetzung des RPCs erfolgt hierbei ebenfalls asynchron, sodass der Client sofort weiterarbeiten kann. \cite*{schill:2012}
 
@@ -37,3 +37,18 @@ Der Client kann nun die Daten anfordern oder sich diese über einen RPC vom Serv
 Der Vorteil bei den Asynchronen Rückruffunktionen gegenüber der Polling-Methode für die asynchrone Datenübertragung liegt darin, dass die Performance der Rückruffunktionen besser ist. Dies liegt an der geringeren Rechenzeit und Netzlast. \cite*{abts:2019}
 
 Die asynchronen Remote Procedure Calls erleichtern zusätzlich das Versenden großer Datenmengen in kurzer Zeit oder das Durchführen langer und komplexer Berechnungen. \cite*{schill:2012}
+
+\subsubsection{Broker-basierte Asynchrone Datenübertragung}
+Die Broker-basierte Asynchrone Datenübertragung funktioniert analog zu den Asynchronen Rückruffunktionen. Der Haupt-Unterschied zwischen den beiden Methoden liegt darin, dass bei der Broker-basierte Asynchrone Datenübertragung, wie der Name bereits impliziert, ein Broker zwischengeschaltet ist, der die Nachrichten verwaltet. 
+
+Bei der Broker-basierten Asynchronen Datenübertragung gibt es mehrere verschiedene Modelle die asynchron umgesetzt werden können. Die Modelle umfassen das Point-to-Point-Modell, das Request/Reply-Modell und das Publish/Subscribe-Modell. \cite*{abts:2019,tremp:2021}
+
+Im Rahmen dieser Ausarbeitung wird hier lediglich das Publish/Subscribe-Modell als Beispiel für eine Broker-basierte Asynchrone Datenübertragung aufgegriffen, da dieses Modell leichter asynchron umzusetzen und besser in das komplexe System integrierbar ist. \\
+
+Die Broker-basierte Asynchrone Datenübertragung basiert auf einer Message Oriented Middleware \ac{MOM} um asynchrone Datenübertragung zu ermöglichen. Message Oriented Middelware besteht aus einem Broker und einem asynchronen Kommunikationsprotokoll. \cite*{tremp:2021}
+
+Ein Broker ist zur Verwaltung verschiedener Warteschlangen, die mit Nachrichten befüllt sind, sowie dem Speichern und Vermitteln der Nachrichten. \cite*{tremp:2021}
+
+Bei dem Publish/Subscribe-Modell werden Nachrichten von einem Sender zu einem Bestimmten Thema (topic) veröffentlicht (published). Der Client abonniert ein Thema bei dem MOM-Server. Der MOM-Server vermittelt anschließend die Nachricht zu einem Topic an alle Subscriber, die das Thema abonniert haben. \cite*{abts:2019} Publisher und Subscriber agieren hierbei unabhängig voneinander wodurch die Daten asynchron übertragen werden. Jeder Subscriber empfängt dieselbe Nachricht von einem abonnierten Thema. \cite*{tremp:2021}
+
+Je nach Realisierung ist eine aktive Verbindung zwischen dem Subscriber und dem MOM-Server notwendig oder nicht notwendig, um nachträglich alle Nachrichten zu einem Thema zu erhalten. \cite*{abts:2019}
