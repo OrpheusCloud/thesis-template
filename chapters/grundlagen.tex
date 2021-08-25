@@ -23,7 +23,7 @@ Es gibt mehrere verschiedene Methoden eine asynchrone Datenübertragung umzusetz
 \subsection{Methoden der Asynchonen Datenübertragung}
 Nach aktuellen Trends der Informatik gibt es drei verschiedene Methoden für die Implementierung der asynchronen Datenübertragung. 
 
-Bei den Methoden handelt es sich um Asynchrone Rückruffunktionen, Broker-basierte Asynchrone Datenübertragung sowie Polling und werden in den folgenden Abschnitten beschrieben. 
+Bei den Methoden handelt es sich um Asynchrone Rückruffunktionen, Broker-basierte Asynchrone Datenübertragung sowie Polling/Websockets und werden in den folgenden Abschnitten beschrieben. 
 
 \subsubsection{Asynchrone Rückruffunktionen}
 Bei den Asynchronen Rückruffunktionen oder auch „Asynchrone Callbacks“ genannt, muss der Client sich zunächst bei dem Server registrieren, indem der Server eine Referenz auf den Client speichert. \cite{abts:2019}
@@ -52,3 +52,10 @@ Ein Broker ist zur Verwaltung verschiedener Warteschlangen, die mit Nachrichten 
 Bei dem Publish/Subscribe-Modell werden Nachrichten von einem Sender zu einem Bestimmten Thema (topic) veröffentlicht (published). Der Client abonniert ein Thema bei dem MOM-Server. Der MOM-Server vermittelt anschließend die Nachricht zu einem Topic an alle Subscriber, die das Thema abonniert haben. \cite*{abts:2019} Publisher und Subscriber agieren hierbei unabhängig voneinander wodurch die Daten asynchron übertragen werden. Jeder Subscriber empfängt dieselbe Nachricht von einem abonnierten Thema. \cite*{tremp:2021}
 
 Je nach Realisierung ist eine aktive Verbindung zwischen dem Subscriber und dem MOM-Server notwendig oder nicht notwendig, um nachträglich alle Nachrichten zu einem Thema zu erhalten. \cite*{abts:2019}
+
+\subsubsection{Polling/Websockets}
+Die dritte Methode, um asynchrone Datenübertragung umzusetzen ist Polling. Polling beschreibt das regelmäßige Absenden von Anfragen an einen Server, bis das gewünschte Ergebnis geliefert wird. \cite*{goll:2020} \\
+
+Der Client registriert sich zunächst bei einem Server. Der Client sendet einen request an den Server, um die benötigten Daten zu erhalten. Der Server bestätigt anschließend die Anfrage und verarbeitet dann die Response. \cite*{goll:2020} Der Client kann nun weiterarbeiten und sendet nun parallel und frequentiell Anfragen an den Server, um den Status zu ermitteln, bis das Ergebnis (die Response des Servers) empfangen werden kann. Der Client hat nun die gewünschten Daten erhalten. Der Vorgang ist hierbei asynchron, da der Client weiterarbeitet bis die Daten eintreffen und nicht blockiert. \\
+
+Je nach Kontext ist es sinnvoller Websockets zu implementieren. Websockets ermöglichen im Gegensatz zum Polling, dass bidirektionale Versenden von Nachrichten. Dem Server ist es damit ebenfalls möglich den Client Benachrichtigungen zu senden. Der Client kann dadurch gezielt eine Anfrage für die Ergebnisdaten schicken und muss diese nicht immer wieder wie beim Polling versenden. Websockets sind somit wesentlich performanter und haben eine geringere Netzlast. \cite*{goll:2020}
