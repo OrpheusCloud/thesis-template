@@ -28,7 +28,7 @@ Bei den Methoden handelt es sich um Asynchrone Rückruffunktionen, Broker-basier
 \subsubsection{Asynchrone Rückruffunktionen}
 Bei den Asynchronen Rückruffunktionen oder auch „Asynchrone Callbacks“ genannt, muss der Client sich zunächst bei dem Server registrieren, indem der Server eine Referenz auf den Client speichert. \cite{abts:2019}
 
-Der Client ruft mittels Webservice oder Remote Procedure Call \ac{RPC} die entfernte Server Methode auf. Sobald der Server die Ereignisbehandlungsroutinen abgearbeitet und die angeforderten Daten ermittelt hat, benachrichtigt dieser den Client. \cite*{bengelbaun:2015}
+Der Client ruft mittels Webservice oder \ac{RPC} die entfernte Server Methode auf. Sobald der Server die Ereignisbehandlungsroutinen abgearbeitet und die angeforderten Daten ermittelt hat, benachrichtigt dieser den Client. \cite*{bengelbaun:2015}
 
 Die Umsetzung des RPCs erfolgt hierbei ebenfalls asynchron, sodass der Client sofort weiterarbeiten kann. \cite*{schill:2012}
 
@@ -45,7 +45,7 @@ Bei der Broker-basierten Asynchronen Datenübertragung gibt es mehrere verschied
 
 Im Rahmen dieser Ausarbeitung wird hier lediglich das Publish/Subscribe-Modell als Beispiel für eine Broker-basierte Asynchrone Datenübertragung aufgegriffen, da dieses Modell leichter asynchron umzusetzen und besser in das komplexe System integrierbar ist. \\
 
-Die Broker-basierte Asynchrone Datenübertragung basiert auf einer Message Oriented Middleware \ac{MOM} um asynchrone Datenübertragung zu ermöglichen. Message Oriented Middelware besteht aus einem Broker und einem asynchronen Kommunikationsprotokoll. \cite*{tremp:2021}
+Die Broker-basierte Asynchrone Datenübertragung basiert auf einer \ac{MOM} um asynchrone Datenübertragung zu ermöglichen. Message Oriented Middelware besteht aus einem Broker und einem asynchronen Kommunikationsprotokoll. \cite*{tremp:2021}
 
 Ein Broker ist zur Verwaltung verschiedener Warteschlangen, die mit Nachrichten befüllt sind, sowie dem Speichern und Vermitteln der Nachrichten. \cite*{tremp:2021}
 
@@ -59,3 +59,15 @@ Die dritte Methode, um asynchrone Datenübertragung umzusetzen ist Polling. Poll
 Der Client registriert sich zunächst bei einem Server. Der Client sendet einen request an den Server, um die benötigten Daten zu erhalten. Der Server bestätigt anschließend die Anfrage und verarbeitet dann die Response. \cite*{goll:2020} Der Client kann nun weiterarbeiten und sendet nun parallel und frequentiell Anfragen an den Server, um den Status zu ermitteln, bis das Ergebnis (die Response des Servers) empfangen werden kann. Der Client hat nun die gewünschten Daten erhalten. Der Vorgang ist hierbei asynchron, da der Client weiterarbeitet bis die Daten eintreffen und nicht blockiert. \\
 
 Je nach Kontext ist es sinnvoller Websockets zu implementieren. Websockets ermöglichen im Gegensatz zum Polling, dass bidirektionale Versenden von Nachrichten. Dem Server ist es damit ebenfalls möglich den Client Benachrichtigungen zu senden. Der Client kann dadurch gezielt eine Anfrage für die Ergebnisdaten schicken und muss diese nicht immer wieder wie beim Polling versenden. Websockets sind somit wesentlich performanter und haben eine geringere Netzlast. \cite*{goll:2020}
+
+\subsection{Anforderungen und Vorteile einer Asynchronen Datenübertragung}
+Die Anforderungen, die eine asynchrone Datenübertragung erfüllen muss, sind überschaubar. Die besonderen Anforderungen differenzieren sich im Vergleich zu synchroner Datenübertragung lediglich in dem Punkt, dass empfangene Nachrichten zeitverschoben verarbeitet werden \cite*{tremp:2021} und der Sender somit weitere Aufgaben bis zum Eintreffen des Ergebnisses umsetzen kann.  \\
+
+Spezifische Vorteile der Asynchronen Datenübertragung gegenüber der synchronen Datenübertragung liegen darin, dass eine lose Kopplung zwischen den Applikationen vorliegt, der Ressourcenverbrauch gering ist, sowie die Fehlertoleranz hoch. \cite*{tremp:2021}
+Weitere Vorteile liegen in der guten Skalierbarkeit und der schnellen, parallelen Verarbeitung. \cite*{tremp:2021}
+
+Die hohe Fehlertoleranz wird durch die lose Kopplung von Sender und Empfänger gewährleistet. Die beteiligten Komponenten können unabhängig voneinander neugestartet und Nachrichten nachträglich empfangen werden. \cite*{abts:2019}
+
+Nachrichten können an mehrere Empfänger gleichzeitig zugestellt werden bei Broker-basierte Asynchrone Datenübertragung, da der Broker die Nachrichten an jeden Subscriber übermittelt. \cite*{abts:2019}
+
+Die Kommunikation funktioniert unabhängig von Programmiersprache und Plattform, durch Verwendung von nachrichtenorientierter Middleware. \cite{abts:2019}
