@@ -82,3 +82,27 @@ Ein komplexes System wird im Rahmen dieser Ausarbeitung wie folgt definiert:
 Bei einem komplexen System handelt es sich um ein Verteiltes System komplexer Natur. Das Verteilte System umfasst mehrere Komponenten und ist in eine Systemlandschaft mit mindestens zehn Schnittstellen zu anderen Systemen eingebettet. Die Anzahl der Komponenten hat hierbei keine Begrenzung nach oben und muss eine Skalierbarkeit für n weitere Komponenten besitzen. Die mindeste Anzahl an Komponenten bezieht sich hierbei auf die geringstmögliche Anzahl an Komponenten, die für das Verteilte System benötigt werden und variiert je nach Systemarchitektur und Anforderungen an das System, die von dem jeweiligen Unternehmen definiert wird. Der Umfang an Komponenten, Schnittstellen und Systemabhängigkeiten muss jeweils von einem IT-Experten bewertet werden, der mit der Systemarchitektur vertraut ist. 
 
 Die Verteilten Systeme werden aufgrund verschiedener IT-Trends komplexer. So muss ein Verteiltes System immer kürzere Entwicklungszeit vorweisen, um schneller eingesetzt werden zu können und dabei möglichst wenig Entwicklungskosten verursachen. \cite{vorossanchez:2003}
+
+\subsection{Verteiltes System}
+
+\subsubsection{Client/Server-Modell}
+Bei dem Client-Server-Modell handelt es sich um einen traditionellen Ansatz \cite*{schill:2012} der am weitesten verbreitet ist für die verteilte Verarbeitung. \cite*{abts:2019}
+
+Bei dem Modell gibt es mehrere Clients, die einem Server Anfragen schicken, um Services durchzuführen oder Daten zu erhalten. Der Server stellt dabei die Dienste oder Daten dem Client zur Verfügung und kann mehrere Clients gleichzeitig bedienen. \cite*{bengelbaun:2015}
+Der Server kann sich hierbei falls benötigt, bei Services anderer Server bedienen, um die Anfrage des Clients abzuarbeiten. \cite{schill:2012}
+
+Client und Server können auf dem gleichen Rechner oder auf unterschiedlichen Rechnern ausgeführt werden. \cite{bengelbaun:2015}
+Diese werden in der Praxis meist auf unterschiedlichen Rechnern verteilt, um die Vorteile eines Verteilten Systems nutzen zu können. \cite{abts:2019}
+
+Die Kommunikation zwischen Client und Server wird meist mit Remote Procedure Calls umgesetzt, um ferne Prozeduraufrufe durchführen zu können. \cite*{schill:2012}
+
+Die Anfragen des Clients an den Server erfolgen meist synchron, können jedoch ebenfalls asynchron umgesetzt werden. \cite{schill:2012}
+Der Client kann hierbei weitere Anfragen an den Server senden, noch bevor der Server die vorherigen Aufgaben beendet hat. Die Anfragen werden dabei in separaten Threads abgearbeitet. \cite{abts:2019}
+
+\subsubsection{Komponentenmodell}
+
+\subsection{Schnittstellen}
+
+\subsection{Eigenschaften}
+
+
