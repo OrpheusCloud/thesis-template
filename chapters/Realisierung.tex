@@ -3,13 +3,23 @@
 Text einfügen!
 
 \section{Projektumgebung}
-PP3
+Das Projekt wurde unteranderem im Rahmen des dritten Praxisprojektes im siebten Semester des dualen Bachelorstudiengangs „Kooperative Studiengang Informatik“ vorbereitet und anschließend weitergeführt. \\
+
+Der Einsatz erfolgt hierbei bei der Deutschen Telekom IT GmbH im Bereich des Wholesale-Marktes. Der Wholesale-Markt liegt zwischen den verschiedenen Internet-Providern vor. Aufgrund der Deutschen gesetzlichen Vorgaben müssen sich die Internetanbieter hierbei das Netz teilen und bei Anfrage ihr Netz an einen anderen Anbieter vermieten.  Ein essenzielles System für die Abwicklung der Wholesale-Aufträge der Deutschen Telekom AG stellt das \ac{WBFE} dar. Bei dem Wholesale-Business-Frontend handelt es sich um ein komplexes System das verschiedene Internetanschlüsse konfiguriert und ein Angebot an den Wholesale-Partner versendet. Das System hat hierbei viele Abhängigkeiten von anderen Systemen, um die Anschlussverfügbarkeit zu überprüfen und ein geeignetes Angebot zu konfigurieren sowie Prozesse zur Abwicklung des Geschäfts anzustoßen.
+
+Für die Anschlussverfügbarkeit werden die benötigten Daten wie zum Beispiel der Standort an ein anderes IT-System übermittelt. Dieses bestimmt nun was an der übergebenen Adresse für mögliche Anschlüsse vorliegen. Wenn diese bestimmt wurden, wird der Anschluss zurück an das Wholesale-Business-Frontend übermittelt.
+
+Das Übersenden der Daten wurde hierbei asynchron realisiert. Somit ist es dem Wholesale-Kunden möglich die benötigten Formulardaten weiter auszufüllen, während die Daten für die Anschlussverfügbarkeit im Hintergrund angefordert und übermittelt werden. \\
+
+Im Rahmen des dritten Praxisprojektes des Kooperativen Studiengangs Informatik wurden verschiedene kleine Prototypen aufgesetzt, um zu überprüfen, wie man die Daten asynchron an das Frontend übertragen kann und der Benutzer den neuen Bearbeitungsstatus sieht, ohne die Seite neu laden zu müssen.
+
+Für die Prototypen wurde beispielhaft eine Anwendung aufgesetzt, die ein Benutzermanagementsystem simulieren sollte. Dabei konnten Nutzer hinzugefügt, bearbeitet oder gelöscht werden. Wenn Beispielsweise ein neuer Nutzer angelegt wird, soll dies direkt synchronisiert und bei allen Clients angezeigt werden. Die Übertragung der Informationen erfolgte hierbei asynchron und wurde mittels Websockets und Polling umgesetzt.
 
 \section{Kriterien}
 
-\subsection{Kriterium1}
+\subsection{Standardisiert}
 
-\subsection{Kriterium2}
+\subsection{Skalierbarkeit}
 
 \subsection{Kriterium3}
 
@@ -17,7 +27,22 @@ PP3
 \section{Gewichtung}
 
 \section{Bewertungsmatrix}
-
+\begin{table}[h]
+    \myfloatalign
+    \begin{tabularx}{\textwidth}{Xll} \toprule
+        \tableheadline{labitur bonorum pri no} & \tableheadline{que vista}
+        & \tableheadline{human} \\ \midrule
+        fastidii ea ius & germano &  demonstratea \\
+        suscipit instructior & titulo & personas \\
+        %postulant quo & westeuropee & sanctificatec \\
+        \midrule
+        quaestio philosophia & facto & demonstrated \\
+        %autem vulputate ex & parola & romanic \\
+        %usu mucius iisque & studio & sanctificatef \\
+        \bottomrule
+    \end{tabularx}
+    \caption[Autem usu id]{Autem usu id.}
+\end{table}
 \subsection{Erläuterung der Bewertung}
 
 \subsection{Ergebnis}
