@@ -16,33 +16,67 @@ Im Rahmen des dritten Praxisprojektes des Kooperativen Studiengangs Informatik w
 Für die Prototypen wurde beispielhaft eine Anwendung aufgesetzt, die ein Benutzermanagementsystem simulieren sollte. Dabei konnten Nutzer hinzugefügt, bearbeitet oder gelöscht werden. Wenn Beispielsweise ein neuer Nutzer angelegt wird, soll dies direkt synchronisiert und bei allen Clients angezeigt werden. Die Übertragung der Informationen erfolgte hierbei asynchron und wurde mittels Websockets und Polling umgesetzt.
 
 \section{Kriterien}
+Bei den Kriterien handelt es sich um die ausschlaggebenden Merkmale der asynchronen Datenübertragungsmethoden. Die Kriterien wurden hierbei mit Hilfe verschiedener IT-Experten, der Softwareentwicklung und Architektur des Wholesale-Bereiches der Deutschen Telekom IT GmbH erstellt. Anschließend wurden die Kriterien im Plenum besprochen und in Hinblick auf die Wirtschaftlichkeit priorisiert. 
 
-\subsection{Standardisiert}
+Die daraus resultierenden Kriterien werden im folgenden Abschnitt genauer erläutert sowie die Vergabe der Gewichtung offengelegt. 
+
+\subsection{Zugänglichleit}
+Die Zugänglichkeit umfasst sowohl wie leicht sich die asynchrone Datenübertragungsmethode in das komplexe System integrieren lässt, als auch wie simpel sich die Methode implementieren lässt und wie verständlich diese für den Entwickler ist.
+
+Das Kriterium der Zugänglichkeit ist subjektiv und wird daher für die Bepunktung in Relation zwischen den Methoden gesetzt.
+
+Das Kriterium der Zugänglichkeit beeinflusst die Wirtschaftlichkeit hinsichtlich der Arbeitszeit. Je aufwändiger es ist die asynchrone Datenübertragungsmethode in das komplexe System zu integrieren, desto mehr Arbeitszeit und Personal wird benötigt. Zusätzlich wird weitere Arbeitszeit benötigt für die Einarbeitung und Wartung der neuimplementierten Methode. Wenn die Methode hierbei sehr simpel ausfällt, so sänkt dies den Aufwand zur Einarbeitung und steigert somit die Wirtschaftlichkeit. 
 
 \subsection{Skalierbarkeit}
+Bei der Skalierbarkeit handelt es sich um ein Kriterium, dass die Erweiterbarkeit der asynchronen Datenübertragungsmethode beschreibt. Bei der Methode soll es möglich sein beliebig viele Daten asynchron übertragen zu können. Je nach Bedarf soll hierbei der Durchsatz erhöht werden. 
 
-\subsection{Kriterium3}
+Dafür können einzelne Komponenten und Prozesse hinzugefügt oder die Methode an sich angepasst werden. 
 
+Die Skalierbarkeit beeinflusst hierbei stark die Wirtschaftlichkeit, jedoch langezeitig gesehen. Für eine gute Skalierbarkeit müssen viele Ressourcen bereitgestellt werden sowie die Methode entsprechend erweitert werden. Der Aufwand zahlt sich aus, indem bei guter Skalierbarkeit die asynchrone Datenübertragungsmethode an neue Anforderungen anpassbar ist und somit nachhaltig einen Mehrwert bietet. Zusätzlich wird Arbeitszeit gespart, da die Methode bereits eingesetzt wird und somit vertraut für die Entwickler ist, die damit arbeiten müssen.
+
+\subsection{Performance}
+Die Performance beschreibt wie effizient die asynchrone Datenübertragungsmethode die Daten überträgt. Die Performance ist besser, je mehr Daten verlustfrei in kürzester Zeit übertragen werden. 
+
+Die Performance ist essenziell, da viele Abhängigkeiten darauf ausgelegt werden können, wie schnell die Antwortzeit beträgt. Zusätzlich spiegelt die Performance der asynchronen Datenübertragungsmethode meist die Wartezeit des Clients auf die Daten wider. Wenn der Client, der meist ein Kunde ist, zu lange auf das Ergebnis warten muss, so wird dieser unzufrieden und sieht sich bei der Konkurrenz um. 
+
+Die Performance beeinflusst die Wirtschaftlichkeit somit einmal, dass der Ressourcenverbrauch und somit die Kosten niedriger sind und der Durchsatz erhöht wird, wodurch der Umsatz maximiert wird. Eine weitere Steigerung der Wirtschaftlichkeit wird durch die Kundenzufriedenheit generiert, die in Zukunft weiterhin gerne mit dem Großunternehmen kooperieren bei einer guten Erfahrung. 
+
+\subsection{Komplexität}
+Das Kriterium der Komplexität beschreibt wie komplex die asynchrone Datenübertragungsmethode in dem komplexen System fungiert. Dabei wird genauer betrachtet wie viele Abhängigkeiten die Methoden jeweils haben und wie leicht diese wartbar und anpassbar sind.
+
+Die Wirtschaftlichkeit wird hierbei nur indirekt beeinflusst da eine hohe Komplexität zu mehr Arbeitsaufwand führt, um den Quellcode mit der Methode an neue Bedingungen anzupassen.
+
+\subsection{Ressourcen}
+Das letzte Kriterium bezieht sich auf die Ressourcen, die benötigt werden, um die asynchrone Datenübertragungsmethode umzusetzen. Jeder Prozess und jedes Programm benötigen Ressourcen. Die Ressourcen umfassen hierbei Speicherkapazität, Performance und die Netzauslastung (Traffic). In der Regel fallen mehr Ressourcen an, desto größer das System skaliert. 
+
+Die Ressourcenkapazität variiert hierbei stark nach Unternehmensgröße und Philosophie. Bei einem großen Telekommunikationsunternehmen sind Speicherkapazität in Massen vorhanden und meist kein Problem wohingegen ein kleines Unternehmen schneller an die Grenzen des verfügbaren Speichers stößt. 
+
+Große Unternehmen skalieren jedoch meist ebenso viel größer. So wird meist ein Vielfaches an Daten übertragen oder angefordert. Dies liegt an der höheren Kundenzahl und den somit resultierenden Anfragen.
+
+Die Wirtschaftlichkeit wird durch den Ressourcenverbrauch beeinflusst. So fallen höhere Kosten für die Speicherkapazitäten und die Netzauslastung an. Mehr Server müssen eingerichtet werden und eine bessere Vernetzung muss aufgebaut werden um die verbrauchten Ressourcen auszugleichen.
+
+Bei Großunternehmen sind somit Kriterien wie die Performance und Skalierbarkeit mehr relevant.
 
 \section{Gewichtung}
+Die Gewichtung beziehungsweise die Priorisierung wurde ebenfalls wie die Kriterien mit Hilfe verschiedener IT-Experten, der Softwareentwicklung und Architektur des Wholesale-Bereiches der Deutschen Telekom IT GmbH vorgenommen und im Plenum ausdiskutiert. 
+
+Bei der Gewichtung wurden maximal eins bis drei Punkte vergeben, die als Multiplikator dienen. So gehen die Kriterien einfach, doppelt oder dreifach ein. Je höher der Multiplikator ist, desto höher ist die zugrundeliegende Priorisierung. \\
+
+Die Kriterien Komplexität und Zugänglichkeit gehen beide Einfach ein. Beide Kriterien sind für die Evaluation relevant, nehmen jedoch keinen großen Einfluss auf die Wirtschaftlichkeit. Bei Großunternehmen sind Anpassungen der Systemarchitektur in der Regel nicht zeitkritisch, weshalb eine geringere Zugänglichkeit und Komplexität vernachlässigt werden, kann. Der Aufwand ist bei einer komplexen Methode wesentlich größer, jedoch ist der Aufwand einmalig und relativiert sich mit der Einsatzdauer. 
+
+Doppel gewertet werden die Kriterien Skalierbarkeit und Ressourcen. Beide Punkte nehmen starken Einfluss auf die Wirtschaftlichkeit. Die Ressourcen stellen unmittelbar kosten dar und je niedriger diese sind, desto besser ist die Wirtschaftlichkeit. Die Skalierbarkeit ermöglicht schnelles reagieren auf neue Anforderungen und das Erweitern für mehr Kapazitäten. Somit wird die Wirtschaftlichkeit nachhaltig angekoppelt.
+
+Das Kriterium Performance wird am höchsten gewichtet und geht dreifach ein. Die Performance nimmt am direktesten Einfluss auf die Wirtschaftlichkeit und steigert diese proportional. Die Performance ist bei Großunternehmen meist von kritischer Relevanz. So müssen IT-Systeme komplett optimiert werden, um weitere Leistung herauszuholen und den Durchsatz zu erhöhen. 
 
 \section{Bewertungsmatrix}
-\begin{table}[h]
-    \myfloatalign
-    \begin{tabularx}{\textwidth}{Xll} \toprule
-        \tableheadline{labitur bonorum pri no} & \tableheadline{que vista}
-        & \tableheadline{human} \\ \midrule
-        fastidii ea ius & germano &  demonstratea \\
-        suscipit instructior & titulo & personas \\
-        %postulant quo & westeuropee & sanctificatec \\
-        \midrule
-        quaestio philosophia & facto & demonstrated \\
-        %autem vulputate ex & parola & romanic \\
-        %usu mucius iisque & studio & sanctificatef \\
-        \bottomrule
-    \end{tabularx}
-    \caption[Autem usu id]{Autem usu id.}
-\end{table}
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.5\textwidth]{gfx/examples/setup}
+    \caption{Dies ist eine einfache Grafik}
+    \label{fig:chapter03:setup}
+   \end{figure}
+
+
 \subsection{Erläuterung der Bewertung}
 
 \subsection{Ergebnis}
